@@ -29,9 +29,10 @@ return [
     |
     */
 
-    'lifetime' => 120,
+    'lifetime' => 360,
 
-    'expire_on_close' => false,
+    'expire_on_close' => true,
+   // 'expired-session-redirect' => url('auth/login'),
 
     /*
     |--------------------------------------------------------------------------

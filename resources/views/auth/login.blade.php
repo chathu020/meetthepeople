@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Gentellela Alela! | </title>
+    <title>Meet The People! </title>
     
     <!-- Bootstrap -->
     <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -18,23 +18,27 @@
     <!-- Custom Theme Style -->
     <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
 
+    <link href="{{ asset("css/custom.css") }}" rel="stylesheet">
+    
 </head>
 
 <body class="login">
+
 <div>
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
                 <form method="post" action="{{ url('/login') }}">
                     {!! csrf_field() !!}
-                    
-                    <h1>Login Form</h1>
-                    <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                        @if ($errors->has('email'))
+                    <div class="loginimg" ><img src="{{ asset("images/PAP.png") }}"/></div>
+                    <h1>MEET THE PEOPLE SESSION</h1>
+
+                    <div class="form-group has-feedback {{ $errors->has('username') ? ' has-error' : '' }}">
+                        <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="username">
+                        <span class="glyphicon  form-control-feedback"><i class="fa fa-user" title="Align Left"></i></span>
+                        @if ($errors->has('username'))
                             <span class="help-block">
-                      <strong>{{ $errors->first('email') }}</strong>
+                      <strong>{{ $errors->first('username') }}</strong>
                 </span>
                         @endif
                     </div>
@@ -49,30 +53,20 @@
                         @endif
                     
                     </div>
-                    <div>
-                        <input type="submit" class="btn btn-default submit" value="Log in">
-                        <a class="reset_pass" href="{{  url('/password/reset') }}">Lost your password?</a>
+                   
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default submit" value="Login">
+                       <!-- <a class="reset_pass" href="{{  url('/password/reset') }}">Lost your password?</a>-->
                     </div>
                     
                     <div class="clearfix"></div>
                     
-                    <div class="separator">
-                        <p class="change_link">New to site?
-                            <a href="{{ url('/register') }}" class="to_register"> Create Account </a>
-                        </p>
-                        
-                        <div class="clearfix"></div>
-                        <br />
-                        
-                        <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                        </div>
-                    </div>
+                   
                 </form>
             </section>
         </div>
     </div>
 </div>
+
 </body>
 </html>
