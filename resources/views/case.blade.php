@@ -492,7 +492,7 @@ ng-show=" formCase.writer_id.$error.uiRequired" >Please enter Writer</span>
   <p>
    <span><strong>@{{ formatDate(caseFile.created_at ) | date:'dd MMM yyyy'}}</strong></span><br/>
    YOUR REF : </span>@{{caseFile.refNo}}<br/>
-   <span>OUR REF : <span> @{{caseFile.clientCaseRefHead}}/@{{caseFile.clientCaseRefTail}}<br/>
+   <span>OUR REF : <span> @{{caseFile.clientCaseRefHead}}/@{{caseFile.clientCaseRefTail}}</span></span><br/>
     <div class="prelinedata">
      @{{caseFile.attention}}
      @{{caseFile.recipient_Address}}</div><br/>
@@ -500,8 +500,11 @@ ng-show=" formCase.writer_id.$error.uiRequired" >Please enter Writer</span>
      Dear @{{caseFile.recipient_Salutation}}, <br/><br/>
      <strong><span>Subject : </span>@{{caseFile.subject| uppercase}}</strong> <br/>           
      <br/>
-     <strong><span >Name : </span>@{{client.name | uppercase}} (NRIC : </span>@{{client.nric| uppercase}})<br/>
-       <span >Address : </span>BLK @{{client.blkNo| uppercase}}, @{{client.address| uppercase}}, @{{client.unitNo| uppercase}},SINGAPORE @{{client.postalCode| uppercase}}<br/></strong>
+     <strong><span >Name : </span>@{{client.name | uppercase}} (NRIC : @{{client.nric| uppercase}})<br/>
+       <span >Address : </span>@{{ (client.accomodationType == 0) ? 'BLK': ''}}  
+        @{{client.blkNo| uppercase}}, @{{client.address| uppercase}}, @{{ (client.unitNo) ? (client.unitNo| uppercase)+',' : ''}} SINGAPORE @{{client.postalCode| uppercase}}<br/>
+        <span ng-if="client.handphone || client.homeTel" >Contact : @{{ (client.handphone) ? (client.handphone): (client.homeTel)}}<br/> </span> 
+        </strong>
        <br/>
        <div style="min-height: 50px;" class="prelinedata">  @{{caseFile.content}}</div><br/><br/>
        Your Sincerely,<br/>

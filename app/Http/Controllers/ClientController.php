@@ -291,7 +291,7 @@ public function edit($id)
                 $client->officeTel = null;
             if($client->handphone == 0)
                 $client->handphone = null;
-            return view('client.edit')->with('client', $client);                
+            return redirect('clients/'. $client->id.'/edit')->with('client', $client);                       
 
         } catch (Exception $e) {
           return "Error";

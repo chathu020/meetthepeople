@@ -132,7 +132,7 @@
                     </div>
                     <!-- Unit No -->   
                     <div class="form-group row">
-                        {!! Form::label('unitNo', 'Unit No *', ['class' => 'col-md-4 control-label']) !!}
+                        {!! Form::label('unitNo', 'Unit No', ['class' => 'col-md-4 control-label']) !!}
                         <div class="col-md-8">
                             {!! Form::text('unitNo', $value = null, ['class' => 'form-control', 'placeholder' => 'Unit No', 'id' => 'unitNo']) !!}
                         </div>
@@ -437,39 +437,32 @@ $(document).ready(function() {
               message: 'The email address is not valid'
           }
       }
-  }, 
-  unitNo: {
-    validators: {
-        notEmpty: {
-            message: 'The Name is required and cannot be empty'
-        }
-    }
-}, 
+  },   
 postalCode: {
     validators: {
         notEmpty: {
-            message: 'The Name is required and cannot be empty'
+            message: 'The Postal Code is required and cannot be empty'
         }
     }
 }, 
 address: {
     validators: {
         notEmpty: {
-            message: 'The Name is required and cannot be empty'
+            message: 'The Address is required and cannot be empty'
         }
     }
 },
 blkNo: {
     validators: {
         notEmpty: {
-            message: 'The Name is required and cannot be empty'
+            message: 'The Bulk no is required and cannot be empty'
         }
     }
 }, 
 roomType: {
     validators: {
         notEmpty: {
-            message: 'The Name is required and cannot be empty'
+            message: 'The Room Type is required and cannot be empty'
         }
     }
 },   

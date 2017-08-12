@@ -558,13 +558,13 @@
   </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-@{{client}}
+
 <div id="printThis">
     
   <p>
 	  <span><strong>@{{ formatDate(caseFile.created_at ) | date:'dd MMM yyyy'}}</strong></span><br/>
-    YOUR REF : </span>@{{caseFile.refNo}}<br/>
-    <span>OUR REF : <span> @{{caseFile.clientCaseRefHead}}/@{{caseFile.clientCaseRefTail}}<br/>
+   <span> YOUR REF : </span>@{{caseFile.refNo}}<br/>
+    <span>OUR REF : </span> @{{caseFile.clientCaseRefHead}}/@{{caseFile.clientCaseRefTail}}<br/>
       <div class="prelinedata">
        @{{caseFile.attention}}
        @{{caseFile.recipient_Address}}</div><br/>
@@ -572,10 +572,13 @@
        Dear @{{caseFile.recipient_Salutation}}, <br/><br/>
 		<strong><span>Subject : </span>@{{caseFile.subject| uppercase}}</strong> <br/>           
        <br/>
-       <strong><span >Name : </span>@{{client.name| uppercase}} (NRIC : </span>@{{client.nric| uppercase}})<br/>
+       <strong><span >Name : </span>@{{client.name| uppercase}} (NRIC : @{{client.nric| uppercase}})<br/>
 		   <span >Address : </span>
-      @{{ (client.accomodationType == 0) ? 'BLK': ''}}       
-      @{{client.blkNo| uppercase}}, @{{client.address| uppercase}}, @{{client.unitNo| uppercase}},SINGAPORE @{{client.postalCode| uppercase}}<br/></strong>
+        @{{ (client.accomodationType == 0) ? 'BLK': ''}}       
+        @{{client.blkNo| uppercase}}, @{{client.address| uppercase}}, @{{ (client.unitNo) ? (client.unitNo| uppercase)+',' : ''}}SINGAPORE @{{client.postalCode| uppercase}}<br/>
+        <span ng-if="client.handphone || client.homeTel" > Contact : @{{ (client.handphone) ? (client.handphone): (client.homeTel)}}<br/> </span>
+      </strong>
+
        <br/>
        <div style="min-height: 50px;" class="prelinedata">  @{{caseFile.content}}</div><br/><br/>
        Your Sincerely,<br/>

@@ -128,11 +128,9 @@
 </div>
 <!-- Unit No -->   
 <div class="form-group row">
-    <label for="unitNo" class="col-md-4 control-label">Unit No *</label>     
+    <label for="unitNo" class="col-md-4 control-label">Unit No</label>     
     <div class="col-md-8">
-                <input type="text" class="form-control" ng-class="{ errorinput: submitted && clientForm.unitNo.$invalid }" ng-required="true" ng-model="client.unitNo" id="unitNo" name="unitNo"  value="@{{client.unitNo}}" >
-                  <span class="help-inline" style="color:red"
-                        ng-show="clientForm.unitNo.$invalid && clientForm.unitNo.$touched">Enter a valid Unit No</span>
+                <input type="text" class="form-control"   ng-model="client.unitNo" id="unitNo" name="unitNo"  value="@{{client.unitNo}}" >                 
     </div>
 </div>
 
